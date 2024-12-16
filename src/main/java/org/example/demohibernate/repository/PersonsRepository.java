@@ -15,10 +15,10 @@ public class PersonsRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public List<Persons>getPersonsByCiti(String citi){
+    public List<Persons>getPersonsByCity(String city){
         TypedQuery<Persons> query = em.createQuery("SELECT p " +
-                "FROM Persons p WHERE p.city_of_living = :citi", Persons.class);
-        query.setParameter("citi", citi);
+                "FROM Persons p WHERE p.cityOfLiving = :city", Persons.class);
+        query.setParameter("city", city);
         return query.getResultList();
     }
 
